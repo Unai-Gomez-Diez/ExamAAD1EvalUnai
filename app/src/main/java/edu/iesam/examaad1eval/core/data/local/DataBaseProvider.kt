@@ -7,7 +7,7 @@ object DataBaseProvider {
     fun provideDataBase(context: Context): AppDataBase {
         val db = Room.databaseBuilder(
             context,
-            AppDataBase::class.java, "database-name"
+            AppDataBase::class.java, "db-exam"
         )
         return db.build()
     }
