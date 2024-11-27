@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ExamAAD1Eval</string>
+    <string name="shared">db-exan</string>
 </resources>
