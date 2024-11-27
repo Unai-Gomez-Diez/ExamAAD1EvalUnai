@@ -32,8 +32,9 @@ class MainActivity : AppCompatActivity() {
         )
         GlobalScope.launch {
             //llamar a Room
-            val games = room.getGames()
-            Log.d("@dev", games.toString())
+            room.getGames()
+            Log.d("@dev", room.getGames().toString())
+            Log.d("@dev", room.getGames().size.toString())
         }
 
     }

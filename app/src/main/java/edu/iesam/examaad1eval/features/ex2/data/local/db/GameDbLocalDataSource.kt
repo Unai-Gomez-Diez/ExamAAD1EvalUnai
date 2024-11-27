@@ -12,6 +12,13 @@ class GameDbLocalDataSource(
     }
 
     fun setGames(games: List<Game>) {
-        dao.insertAll(*games.map { it.toEntity() }.toTypedArray())
+        dao.insertAll(*games.map {
+            it.toEntity()
+        }.toTypedArray())
+    }
+
+
+    fun deleteGames() {
+        dao.deleteAll()
     }
 }
