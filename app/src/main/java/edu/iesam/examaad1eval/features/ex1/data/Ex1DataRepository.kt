@@ -1,13 +1,13 @@
-package edu.iesam.examaad1eval.features.data
+package edu.iesam.examaad1eval.features.ex1.data
 
-import edu.iesam.examaad1eval.features.data.local.ItemXmlLocalDataSource
-import edu.iesam.examaad1eval.features.data.local.ServicesXmlLocalDataSource
-import edu.iesam.examaad1eval.features.data.local.UserXmlLocalDataSource
-import edu.iesam.examaad1eval.features.data.remote.MockEx1RemoteDataSource
 import edu.iesam.examaad1eval.features.ex1.Ex1Repository
 import edu.iesam.examaad1eval.features.ex1.Item
 import edu.iesam.examaad1eval.features.ex1.Services
 import edu.iesam.examaad1eval.features.ex1.User
+import edu.iesam.examaad1eval.features.ex1.data.local.ItemXmlLocalDataSource
+import edu.iesam.examaad1eval.features.ex1.data.local.ServicesXmlLocalDataSource
+import edu.iesam.examaad1eval.features.ex1.data.local.UserXmlLocalDataSource
+import edu.iesam.examaad1eval.features.ex1.data.remote.MockEx1RemoteDataSource
 
 class Ex1DataRepository(
     private val userXmlLocalDataSource: UserXmlLocalDataSource,
@@ -17,34 +17,34 @@ class Ex1DataRepository(
 ): Ex1Repository {
     override fun getUsers(): List<User> {
         val users = userXmlLocalDataSource.getUsers()
-        if (users.isEmpty()){
+        return if (users == null) {
             val remote = mockEx1RemoteDataSource.getUsers()
             userXmlLocalDataSource.saveUsers(remote)
-            return remote
+            remote
         } else {
-            return users
+            users
         }
     }
 
     override fun getItems(): List<Item> {
         val items = itemXmlLocalDataSource.getItems()
-        if (items.isEmpty()){
+        return if (items == null) {
             val remote = mockEx1RemoteDataSource.getItems()
             itemXmlLocalDataSource.saveItems(remote)
-            return remote
+            remote
         } else {
-            return items
+            items
         }
     }
 
     override fun getServices(): List<Services> {
         val services = servicesXmlLocalDataSource.getServices()
-        if (services.isEmpty()){
+        return if (services == null) {
             val remote = mockEx1RemoteDataSource.getServices()
             servicesXmlLocalDataSource.saveServices(remote)
-            return remote
+            remote
         } else {
-            return services
+            services
         }
     }
 

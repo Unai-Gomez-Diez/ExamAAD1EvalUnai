@@ -1,4 +1,4 @@
-package edu.iesam.examaad1eval.features.data.local
+package edu.iesam.examaad1eval.features.ex1.data.local
 
 import android.content.Context
 import com.google.gson.Gson
@@ -16,12 +16,12 @@ class ItemXmlLocalDataSource(context: Context) {
         sharedPref.edit().putString("items", itemsJson).apply()
     }
 
-    fun getItems(): List<Item> {
+    fun getItems(): List<Item>? {
         val itemsJson = sharedPref.getString("items", null)
         return if (itemsJson != null) {
             gson.fromJson(itemsJson, Array<Item>::class.java).toList()
         } else {
-            emptyList()
+            null
         }
     }
 

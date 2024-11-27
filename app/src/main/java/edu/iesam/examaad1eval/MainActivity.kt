@@ -3,11 +3,11 @@ package edu.iesam.examaad1eval
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import edu.iesam.examaad1eval.features.data.Ex1DataRepository
-import edu.iesam.examaad1eval.features.data.local.ItemXmlLocalDataSource
-import edu.iesam.examaad1eval.features.data.local.ServicesXmlLocalDataSource
-import edu.iesam.examaad1eval.features.data.local.UserXmlLocalDataSource
-import edu.iesam.examaad1eval.features.data.remote.MockEx1RemoteDataSource
+import edu.iesam.examaad1eval.features.ex1.data.Ex1DataRepository
+import edu.iesam.examaad1eval.features.ex1.data.local.ItemXmlLocalDataSource
+import edu.iesam.examaad1eval.features.ex1.data.local.ServicesXmlLocalDataSource
+import edu.iesam.examaad1eval.features.ex1.data.local.UserXmlLocalDataSource
+import edu.iesam.examaad1eval.features.ex1.data.remote.MockEx1RemoteDataSource
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
