@@ -1,6 +1,7 @@
 package edu.iesam.examaad1eval
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import edu.iesam.examaad1eval.core.data.local.DataBaseProvider
 import edu.iesam.examaad1eval.features.ex2.data.Ex2DataRepository
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch {
             //llamar a Room
             room.getGames()
+            Log.d("@dev", room.getGames().toString())
+            Log.d("@dev", room.getGames().size.toString())
         }
 
     }

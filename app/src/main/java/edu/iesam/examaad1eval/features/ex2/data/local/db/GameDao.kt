@@ -10,8 +10,11 @@ interface GameDao {
     @Query("SELECT * FROM $GAME_TABLE_NAME")
     fun getAll(): List<GameEntity>
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg games: GameEntity)
+
+    @Query("DELETE FROM $GAME_TABLE_NAME")
+    fun deleteAll()
+
 
 }

@@ -10,12 +10,21 @@ class Ex2DataRepository(
     private val mockEx2RemoteDataSource: MockEx2RemoteDataSource
 ) : Ex2Repository {
     override fun getGames(): List<Game> {
-        val games = gameDbLocalDataSource.getGames()
-        if (games.isEmpty()) {
-            val remote = mockEx2RemoteDataSource.getGames()
-            gameDbLocalDataSource.setGames(remote)
-            return remote
+        val list = mutableListOf<Game>()
+        val user = gameDbLocalDataSource.getGames()
+        user.forEach {
+            list.add(it)
         }
-        return games
+        val games = mockEx2RemoteDataSource.getGames()
+        games.forEach {
+            if (list.size <= 7) {
+                list.add(it)
+            }
     }
+        gameDbLocalDataSource.deleteGames()
+        val list2 = list.subList(3, 8)
+        gameDbLocalDataSource.setGames(list2)
+        return list
+
+}
 }
